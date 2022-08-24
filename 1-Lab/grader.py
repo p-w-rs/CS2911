@@ -1,6 +1,6 @@
 import unittest
 import random
-from key import *
+from code import *
 
 
 class TestStringMethods(unittest.TestCase):
