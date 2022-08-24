@@ -1,3 +1,5 @@
+# Python Encodings
+
 In this lab you will implement a series of functions to switch between differentt ways of representing data in python.
 These functions or variations on them will be used throughout the course, thus this lab is a foundation you mut understand to do well in later labs.
 
