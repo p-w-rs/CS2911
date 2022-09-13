@@ -39,5 +39,6 @@ The goal of this lab is to write a Python program to parse a binary file contain
 * It ends when the the byte that codes for an ASCII newline is found (e.g. ‘\n’, ‘\x0a’)
 
 ### Result
-* Create a list with the results from the operations in the order they are run*  For all math ops, push a number into the list
+* Create a list with the results from the operations in the order they are run
+* For all math ops, push a number into the list
 * For the "Print" op, push the ASCII string coded by the bytes into the list
