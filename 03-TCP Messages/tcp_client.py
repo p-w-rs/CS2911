@@ -42,9 +42,10 @@ def tcp_send(server_host, server_port):
         # While writing tcp_receive, you will need to use a different approach to unpack to meet the specification.
         #
         # Feel free to upgrade this code to handle a higher number of lines, too.
-        tcp_socket.sendall(b'\x00\x00')
-        time.sleep(1)  # Just to mess with your servers. :-)
-        tcp_socket.sendall(b'\x00' + bytes((num_lines, )))
+        lines_bytes = num_lines.to_bytes(4, 'big')
+        for i in range(4):
+            tcp_socket.sendall(lines_bytes[i:i+1])
+            time.sleep(0.25)  # Just to mess with your servers. :-)
 
         # Enter the lines of the message. Each line will be sent as it is entered.
         for line_num in range(0, num_lines):
