@@ -12,11 +12,11 @@ UDP Examples can be found at https://pythontic.com/modules/socket/udp-client-ser
 # The Exercise
 For this lab you will be writing the Python code for a TFTP server. The server will handle requests sent from a TFTP client. The first step is to install the TFTP client on your windows computer. To do this follow the following steps:
 
-Click on the “Start” menu or press the Windows key and search for “Control Panel” (You can also open search using Windows Key + S)
-Click on “Programs” -> “Programs and Features” and then click on “Turn Windows features on or off”
-Scroll down and check the box labeled “TFTP Client” then click “OK”
-The installer will run and install the TFTP client software
-To use the TFTP client, open the Windows command prompt (you can do this by pressing the Windows Key + R, then typing ‘cmd’, and pressing enter).  From the Windows command prompt you can run the TFTP client using the “tftp” command.  If you run the command without any parameters, you will see the help text for the command:
+1. Click on the “Start” menu or press the Windows key and search for “Control Panel” (You can also open search using Windows Key + S)
+2. Click on “Programs” -> “Programs and Features” and then click on “Turn Windows features on or off”
+3. Scroll down and check the box labeled “TFTP Client” then click “OK”
+4. The installer will run and install the TFTP client software
+5. To use the TFTP client, open the Windows command prompt (you can do this by pressing the Windows Key + R, then typing ‘cmd’, and pressing enter).  From the Windows command prompt you can run the TFTP client using the “tftp” command.  If you run the command without any parameters, you will see the help text for the command:
 
 ```
 C:\>tftp
@@ -54,7 +54,7 @@ The first message that the server receives is a request (either a read or a writ
 
 Your server will only have to support read requests.  The RFC defines a request as follows:
 ```
-			2 bytes     string    1 byte     string   1 byte
+	    2 bytes     string    1 byte     string   1 byte
             ------------------------------------------------
            | Opcode |  Filename  |   0  |    Mode    |   0  |
             ------------------------------------------------
