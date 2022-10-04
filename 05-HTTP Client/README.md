@@ -6,15 +6,12 @@ You will start from the template http_client.py
 The program has at least the following functions; you will add others.
 
 ```get_http_resource(url,file_name)```
-
-This method is provided in its entirety in the template.
-
 Using HTTP, request a web resource and store the returned data in the specified file.
 
 Arguments:
-	- url: string containing URL (including the "http://" protocol declaration and the domain name) for desired resource
-	- file_name: string containing name of file in which to store response data
-	- Return value: None
+- url: string containing URL (including the "http://" protocol declaration and the domain name) for desired resource
+- file_name: string containing name of file in which to store response data
+- Return value: None
 
 
 ```do_http_exchange(host, port, resource, file_name)```
