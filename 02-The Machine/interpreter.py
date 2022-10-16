@@ -62,5 +62,5 @@ def execute(program_file):
 # then the execute function will get run with program1
 # however this line does not run when this file
 # is imported by another .py file (like grader.py)
-if __name__ == '__main__':
-    execute('programs/program1')
+if __name__ == "__main__":
+    execute("programs/program1")

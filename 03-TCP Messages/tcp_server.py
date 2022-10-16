@@ -10,7 +10,8 @@ TCP_PORT = 12100
 # Address to listen on when acting as server.
 # The address '' means accept any connection for our 'receive' port from any network interface
 # on this system (including 'localhost' loopback connection).
-LISTEN_ON_INTERFACE = ''
+LISTEN_ON_INTERFACE = ""
+
 
 def tcp_receive(listen_on, listen_port):
     """
@@ -26,8 +27,9 @@ def tcp_receive(listen_on, listen_port):
     :param int listen_port: Port number on the server to listen on
     """
 
-    print('tcp_receive (server): listen_port={0}'.format(listen_port))
+    print("tcp_receive (server): listen_port={0}".format(listen_port))
     address = (listen_on, listen_port)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     tcp_receive(LISTEN_ON_INTERFACE, TCP_PORT)

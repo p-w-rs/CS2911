@@ -3,7 +3,7 @@ import os
 import math
 
 TFTP_PORT = 69
-TFTP_HOST = 'localhost'
+TFTP_HOST = "localhost"
 TFTP_BLOCK_SIZE = 512
 MAX_UDP_PACKET_SIZE = 65536
 
@@ -30,7 +30,7 @@ def get_file_block(filename, block_number):
     :param block_number: The block number (1 based)
     :return: The data contents (as a bytes object) of the file block
     """
-    file = open(filename, 'rb')
+    file = open(filename, "rb")
     block_byte_offset = (block_number - 1) * TFTP_BLOCK_SIZE
     file.seek(block_byte_offset)
     block_data = file.read(TFTP_BLOCK_SIZE)
@@ -46,7 +46,7 @@ def put_file_block(filename, block_data, block_number):
     :param block_number: The block number (1 based)
     :return: Nothing
     """
-    file = open(filename, 'wb')
+    file = open(filename, "wb")
     block_byte_offset = (block_number - 1) * TFTP_BLOCK_SIZE
     file.seek(block_byte_offset)
     file.write(block_data)
@@ -62,15 +62,17 @@ def socket_setup(host, port):
     s.bind((host, port))
     return s
 
+
 def start_server(host, port):
     rec_socket = socket_setup(host, port)
-    
+
     # read from udp socket for a client request; use rec_socket.recvfrom(bytesToRecieve) which returns a tuple: (data, (host, port))
     # Determine the request type and preapre to read from a file
     # while not done sending blocks or no errors
-        # send block using .sendto(bytesToSend, address)
-        # get ACK (if the ack is not for the correct block number you may need to resend a previous block)
+    # send block using .sendto(bytesToSend, address)
+    # get ACK (if the ack is not for the correct block number you may need to resend a previous block)
     # close your sockets
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     start_server(TFTP_HOST, TFTP_PORT)

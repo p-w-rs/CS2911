@@ -1,6 +1,8 @@
 from socket import *
+
 # import the "regular expressions" module
 import re
+
 
 def get_http_resource(url, file_name):
     """
@@ -14,20 +16,28 @@ def get_http_resource(url, file_name):
     """
 
     # Parse the URL into its component parts using a regular expression.
-    url_match = re.search('http://([^/:]*)(:\d*)?(/.*)', url)
+    url_match = re.search("http://([^/:]*)(:\d*)?(/.*)", url)
     url_match_groups = url_match.groups() if url_match else []
     #    print 'url_match_groups=',url_match_groups
     if len(url_match_groups) == 3:
         host_name = url_match_groups[0]
         host_port = int(url_match_groups[1][1:]) if url_match_groups[1] else 80
         host_resource = url_match_groups[2]
-        print('host name = {0}, port = {1}, resource = {2}'.format(host_name, host_port, host_resource))
-        status_string = do_http_exchange(host_name.encode(), host_port, host_resource.encode(), file_name)
+        print(
+            "host name = {0}, port = {1}, resource = {2}".format(
+                host_name, host_port, host_resource
+            )
+        )
+        status_string = do_http_exchange(
+            host_name.encode(), host_port, host_resource.encode(), file_name
+        )
         print('get_http_resource: URL="{0}", status="{1}"'.format(url, status_string))
     else:
-        print('get_http_resource: URL parse failed, request not sent')
+        print("get_http_resource: URL parse failed, request not sent")
+
 
 # Write Helper functions here
+
 
 def do_http_exchange(host, port, resource, file_name):
     """
@@ -46,29 +56,30 @@ def do_http_exchange(host, port, resource, file_name):
     # Create a request as a bytes object
     # Send the request to the host
     # Receive the response for the host
-        ## Get the first line of the header first
-        ## Extract the message code (e.g. 404, 200)
-        ## If 200 proceeed to read the rest of the header lines
+    ## Get the first line of the header first
+    ## Extract the message code (e.g. 404, 200)
+    ## If 200 proceeed to read the rest of the header lines
     # If the header contains the Content-Length, then
-        ## Read the number of bytes given by the content length value
-        ## save the bytes to a file given by file_name
+    ## Read the number of bytes given by the content length value
+    ## save the bytes to a file given by file_name
     # Else if the header contains the Transfer-Encoding with value chunks
-        ## Read each chunk in (remember the number that comes in with the length of the chunck is ASCII hexadecimal numbers)
-        ## Combine the chunks
-        ## Decode the chunks as ASCII
-        ## Write the ASCII to a file given by file_name
+    ## Read each chunk in (remember the number that comes in with the length of the chunck is ASCII hexadecimal numbers)
+    ## Combine the chunks
+    ## Decode the chunks as ASCII
+    ## Write the ASCII to a file given by file_name
 
     return 500  # Replace this "server error" with the actual status code
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     """
     Tests the client on a variety of resources
     """
 
     # These resource request should result in "Content-Length" data transfer
-    get_http_resource('http://www.httpvshttps.com/check.png', 'check.png')
+    get_http_resource("http://www.httpvshttps.com/check.png", "check.png")
 
     # this resource request should result in "chunked" data transfer
-    get_http_resource('http://www.httpvshttps.com/','index.html')
+    get_http_resource("http://www.httpvshttps.com/", "index.html")
 
     # If you find fun examples of chunked or Content-Length pages, please share them with us!
