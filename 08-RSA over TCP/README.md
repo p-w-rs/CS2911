@@ -14,5 +14,7 @@ You should add an option to start a server that does the following on the port o
 You should add an option to start a client that does the following on the port of your choice:
 - creates a connection to a server
 - immediately after receive a public key tuple
-- encrypt and send a message then close the connection
+- encrypt and send a message
 - receive a b'A' and then close the connection
+
+The way to know the end of each message is it should be followed by a '\r\n'
